@@ -8,9 +8,17 @@ router.route('/').get((req, res) => {                       //get the info of al
 });
 
 router.route('/add').post((req, res) => {                   //add a acc_data
-    const acc_data = req.body.acc_data;
+    const did = Number(req.body.did);
+    const ax = Number(req.body.ax);
+    const ay = Number(req.body.ay);
+    const az = Number(req.body.az);    
 
-    const newAccData = new AccData({acc_data});
+    const newAccData = new AccData({
+        did,
+        ax,
+        ay,
+        az,
+    });
 
     newAccData.save()
     .then(() => res.json('AccData added!'))

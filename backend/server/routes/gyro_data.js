@@ -8,9 +8,17 @@ router.route('/').get((req, res) => {                       //get the info of al
 });
 
 router.route('/add').post((req, res) => {                   //add a gyro_data
-    const gyro_data = req.body.gyro_data;
+    const did = Number(req.body.did);
+    const gx = Number(req.body.ax);
+    const gy = Number(req.body.ay);
+    const gz = Number(req.body.az);  
 
-    const newGyroData = new GyroData({gyro_data});
+    const newGyroData = new GyroData({
+        did,
+        gx,
+        gy,
+        gz,
+    });
 
     newGyroData.save()
     .then(() => res.json('GyroData added!'))

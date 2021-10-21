@@ -8,9 +8,17 @@ router.route('/').get((req, res) => {                       //get the info of al
 });
 
 router.route('/add').post((req, res) => {                   //add a ypr_data
-    const ypr_data = req.body.ypr_data;
+    const did = Number(req.body.did);
+    const roll = Number(req.body.roll);
+    const pitch = Number(req.body.pitch);
+    const yaw = Number(req.body.yaw);  
 
-    const newYprData = new YprData({ypr_data});
+    const newYprData = new YprData({
+        did,
+        roll,
+        pitch,
+        yaw,
+    });
 
     newYprData.save()
     .then(() => res.json('YprData added!'))

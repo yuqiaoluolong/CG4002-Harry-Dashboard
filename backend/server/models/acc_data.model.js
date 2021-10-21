@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const accSchema = new Schema({
-    x: Number,
-    y: Number,
-    z: Number,
+    did: { type: Number, required: true },
+    ax: { type: Number, required: true },
+    ay: { type: Number, required: true },
+    az: { type: Number, required: true },
   }, {
     timestamps: true,
   });
